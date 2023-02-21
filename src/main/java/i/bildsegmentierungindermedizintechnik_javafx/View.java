@@ -3,7 +3,6 @@ package i.bildsegmentierungindermedizintechnik_javafx;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
@@ -12,7 +11,7 @@ import javafx.stage.Stage;
 public class View extends Application {
     final Group view = new Group();
     Scene scene;
-    private ViewController viewControler;
+    ViewController viewControler;
     final int windowSizeX = 500;
     final int windowSizeY = 550;
 

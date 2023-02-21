@@ -5,7 +5,6 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
@@ -16,7 +15,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class ViewController {
     View view;
     ArrayList<Rectangle> recArray = new ArrayList<>();
-    ArrayList<Button> butArray = new ArrayList<>();
     ArrayList<Node> nodes;
     Image polarCord;
 
@@ -25,7 +23,7 @@ public class ViewController {
         //Anzeigen des Polarbildes
 
         //Provisorische Nodes zum Testen (Ersetzen mit der "build" methode, die ein Nodearray zurückgibt)
-        nodes = new ArrayList<Node>();
+        nodes = new ArrayList<>();
         nodes.add(new Node(0,100, 1));
         nodes.add(new Node(100,300,1));
         nodes.add(new Node(200,50,1));
