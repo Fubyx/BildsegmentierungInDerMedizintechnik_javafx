@@ -7,9 +7,6 @@ public class Node {
     int dijkstraValue;
     Node dijkstraParent = null;
 
-
-    ArrayList<Node> childNodes;
-
     Node(int x, int y, int weight){
         this.x = x;
         this.y = y;
