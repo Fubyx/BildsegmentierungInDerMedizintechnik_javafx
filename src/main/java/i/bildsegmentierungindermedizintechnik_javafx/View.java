@@ -11,25 +11,25 @@ import javafx.stage.Stage;
 public class View extends Application {
     final Group view = new Group();
     Scene scene;
-    ViewController viewControler;
+    ViewController viewController;
     final int windowSizeX = 500;
     final int windowSizeY = 550;
 
-    public Rectangle createRectangle(int sizex, int sizey, int x, int y, String color){
+    public Rectangle createRectangle(int sizeX, int sizeY, int x, int y, String color){
         Rectangle rectangle = new Rectangle();
-        rectangle.setWidth(sizex);
-        rectangle.setHeight(sizey);
+        rectangle.setWidth(sizeX);
+        rectangle.setHeight(sizeY);
         rectangle.setX(x);
         rectangle.setY(y);
         rectangle.setFill(Paint.valueOf(color));
         return rectangle;
     }
-    public Line createLine(int startx, int starty, int endx, int endy) {
+    public Line createLine(int startX, int startY, int endX, int endY) {
         Line line = new Line();
-        line.setStartX(startx);
-        line.setStartY(starty);
-        line.setEndX(endx);
-        line.setEndY(endy);
+        line.setStartX(startX);
+        line.setStartY(startY);
+        line.setEndX(endX);
+        line.setEndY(endY);
         line.setStroke(Paint.valueOf("#ff0000"));
         return line;
     }
@@ -38,7 +38,7 @@ public class View extends Application {
     public void start(Stage stage){
         scene = new Scene(view, windowSizeX, windowSizeY);
 
-        viewControler = new ViewController(this);
+        viewController = new ViewController(this);
         stage.setTitle("Bildsegmentierung in der Medizintechnik");
         stage.setScene(scene);
         stage.show();
