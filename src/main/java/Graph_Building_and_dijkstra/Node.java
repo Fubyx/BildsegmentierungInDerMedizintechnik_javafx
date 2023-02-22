@@ -3,9 +3,10 @@ package Graph_Building_and_dijkstra;
 import java.util.ArrayList;
 
 public class Node {
-    public int x, y, weight;
-    int dijkstraValue;
-    Node dijkstraParent = null;
+    public int x, y;
+    protected int weight;
+    protected int dijkstraValue;
+    protected Node dijkstraParent = null;
 
     public Node(int x, int y, int weight){
         this.x = x;

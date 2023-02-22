@@ -35,7 +35,6 @@ public class ViewController {
 
     private void dykHandler(ActionEvent event) {
         displayLine(nodes);
-
     }
     public void displayLayout(){
         //Deko Rechtecke
