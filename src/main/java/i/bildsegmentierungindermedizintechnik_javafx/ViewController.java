@@ -35,7 +35,6 @@ public class ViewController {
 
     private void dykHandler(ActionEvent event) { // sobald der dykButton ("Create Dijkstra") gedrückt wird, soll der kürzeste Weg eingezeichnet werden
         displayLine(nodes);
-
     }
     public void displayLayout(){
         //Deko Rechtecke
