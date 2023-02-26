@@ -1,6 +1,5 @@
 package i.bildsegmentierungindermedizintechnik_javafx;
 
-import Graph_Building_and_dijkstra.Node;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
