@@ -53,13 +53,12 @@ public class ViewController {
         //Displaying rectangles used for decoration
         recArray.add(view.createRectangle(view.windowWidth, view.windowHeight/6, 0, 0, "#c2f2ee"));
         recArray.add(view.createRectangle((int) polarImage.getWidth(), (int) v.getFitHeight(), (int) v.getX(),(int)v.getY(),"#c2f2ee"));
-        view.view.getChildren().addAll(recArray);
         view.view.getChildren().add(v);
 
         //Button
         Button dykButton = new Button();
         dykButton.setOnAction(this::dykHandler);
-        dykButton.setText("Create Dijkstra");
+        dykButton.setText("Show Dijkstra");
         dykButton.setPrefWidth(125);
         dykButton.setPrefHeight(recArray.get(0).getHeight()/3);
         dykButton.setLayoutY(recArray.get(0).getHeight()/3);
@@ -81,7 +80,7 @@ public class ViewController {
             int starty = path.get(i.get() -1).y + beginOfDisplayY;
             int endx = path.get(i.get()).x + beginOfDisplayX;
             int endy = path.get(i.get()).y + beginOfDisplayY;
-            view.view.getChildren().add(view.createLine(startx, starty,  endx, endy));
+            view.createLine(startx, starty,  endx, endy);
             i.addAndGet(1);
         });
         timeline = new Timeline(keyFrame);

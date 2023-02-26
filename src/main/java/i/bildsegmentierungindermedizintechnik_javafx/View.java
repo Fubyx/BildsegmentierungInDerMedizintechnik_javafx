@@ -36,6 +36,7 @@ public class View extends Application {
         rectangle.setX(x);
         rectangle.setY(y);
         rectangle.setFill(Paint.valueOf(color));
+        view.getChildren().add(rectangle);
         return rectangle;
     }
 
@@ -47,14 +48,14 @@ public class View extends Application {
      * @param endY  the y coordinate of the endpoint
      * @return  the created line
      */
-    public Line createLine(int startX, int startY, int endX, int endY) {
+    public void createLine(int startX, int startY, int endX, int endY) {
         Line line = new Line();
         line.setStartX(startX);
         line.setStartY(startY);
         line.setEndX(endX);
         line.setEndY(endY);
         line.setStroke(Paint.valueOf("#ff0000"));
-        return line;
+        view.getChildren().add(line);
     }
 
     @Override
@@ -67,7 +68,6 @@ public class View extends Application {
         stage.setTitle("Bildsegmentierung in der Medizintechnik");
         stage.setScene(scene);
         stage.show();
-
     }
     public static void main() {
         launch();

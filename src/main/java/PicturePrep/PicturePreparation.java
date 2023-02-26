@@ -43,8 +43,6 @@ public class PicturePreparation {
 
         // The image gets converted into a grayscale-image, to get the brightness of the pixels
         BufferedImage grayImage = new BufferedImage(polarWidth, polarHeight, BufferedImage.TYPE_INT_RGB);
-        int[][] pixel = new int[polarWidth][polarHeight];
-
         for (int x = 0; x < polarWidth; x++){
             for (int y = 0; y < polarHeight; y++){Color color = new Color(polarImage.getRGB(x,y));
                 int z = (int) (0.3 * color.getRed() + 0.59 * color.getGreen() + 0.11 * color.getBlue());
@@ -52,11 +50,11 @@ public class PicturePreparation {
                 grayImage.setRGB(x,y,gray.getRGB());
             }
         }
-        ImageIO.write(polarImage, "jpeg", new File("graymap.jpeg"));
+        ImageIO.write(grayImage, "jpeg", new File("graymap.jpeg"));
 
-        // Die Farben des Bildes werden invertiert, damit man den hellsten Weg mithilfe des Dijkstra-Algorithmus finden kann.
         // The colors of the image get inverted, to enable a search for the brightest path with a dijkstra-algorithm
         BufferedImage invertedImage = new BufferedImage(polarWidth, polarHeight-2,BufferedImage.TYPE_INT_RGB);
+        int[][] pixel = new int[polarWidth][polarHeight];
         for (int x = 0; x < polarWidth; x++) {
             for (int y = 0; y < (polarHeight - 2); y++) {
                 Color invertedColor = new Color(255-grayImage.getRGB(x,y));
@@ -65,7 +63,7 @@ public class PicturePreparation {
             }
         }
 
-        ImageIO.write(polarImage, "jpeg", new File("inverted_graymap.jpeg"));
+        ImageIO.write(invertedImage, "jpeg", new File("inverted_graymap.jpeg"));
 
 
         // gradient-filter is applied
@@ -75,7 +73,7 @@ public class PicturePreparation {
                 gradientImage.setRGB(x,y-1,pixel[x][y-1] * (-1) + pixel[x][y + 1]);
             }
         }
-        ImageIO.write(polarImage, "jpeg", new File("gradient.jpeg"));
+        ImageIO.write(gradientImage, "jpeg", new File("gradient.jpeg"));
 
         // The size of the image is halved, to make the size adequate for presentation.
         int [][]smallerPicture = new int[polarWidth/2][polarHeight/2];
@@ -91,7 +89,7 @@ public class PicturePreparation {
                 smallerPicture[i][j] = (red + green + blue)/3;
             }
         }
-        ImageIO.write(polarImage, "jpeg", new File("smallerimage.jpeg"));
+        ImageIO.write(smallerImage, "jpeg", new File("smallerimage.jpeg"));
 
         return smallerPicture;
     }
