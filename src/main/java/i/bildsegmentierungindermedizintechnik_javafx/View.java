@@ -1,29 +1,52 @@
 package i.bildsegmentierungindermedizintechnik_javafx;
 
+import Graph_Building_and_dijkstra.Node;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 public class View extends Application {
-    final Group view = new Group();
-    Scene scene;
-    ViewController viewController;
-    final int windowSizeX = 500;
-    final int windowSizeY = 550;
+    /**
+     *  The root container, containing every graphical item
+     */
+    protected final Group view = new Group();
+    protected int windowWidth;
+    protected int windowHeight;
+    public static Node[] path;
+    public static Image polarImage;
 
-    public Rectangle createRectangle(int sizeX, int sizeY, int x, int y, String color){
+    /**
+     *  Creates a rectangle with the given parameters
+     * @param width the width of the rectangle
+     * @param height the height of the rectangle
+     * @param x the x coordinate of the top left corner
+     * @param y the y coordinate of the top left corner
+     * @param color the color of the rectangle with the format #RRGGBB
+     * @return  the created rectangle
+     */
+    public Rectangle createRectangle(int width, int height, int x, int y, String color){
         Rectangle rectangle = new Rectangle();
-        rectangle.setWidth(sizeX);
-        rectangle.setHeight(sizeY);
+        rectangle.setWidth(width);
+        rectangle.setHeight(height);
         rectangle.setX(x);
         rectangle.setY(y);
         rectangle.setFill(Paint.valueOf(color));
         return rectangle;
     }
+
+    /**
+     *  Creates a line between the given points
+     * @param startX   the x coordinate of the starting point
+     * @param startY   the y coordinate of the starting point
+     * @param endX  the x coordinate of the endpoint
+     * @param endY  the y coordinate of the endpoint
+     * @return  the created line
+     */
     public Line createLine(int startX, int startY, int endX, int endY) {
         Line line = new Line();
         line.setStartX(startX);
@@ -36,15 +59,17 @@ public class View extends Application {
 
     @Override
     public void start(Stage stage){
-        scene = new Scene(view, windowSizeX, windowSizeY);
+        windowHeight = (int) (150 + polarImage.getHeight()/2);
+        windowWidth = (int) (polarImage.getWidth()/2 + 40);
+        Scene scene = new Scene(view, windowWidth, windowHeight);
 
-        viewController = new ViewController(this);
+        new ViewController(this);
         stage.setTitle("Bildsegmentierung in der Medizintechnik");
         stage.setScene(scene);
         stage.show();
 
     }
-    public static void main(String[] args) {
+    public static void main() {
         launch();
     }
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Node {
     public int x, y;
-    protected int weight;
+    public int weight;
     protected int dijkstraValue;
     protected Node dijkstraParent = null;
 
