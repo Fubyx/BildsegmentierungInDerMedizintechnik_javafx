@@ -42,6 +42,7 @@ public class Graph {
                 smallestValue = picture[0][i];
             }
         }
+        rows -= 10; //so the white border at the bottom of the picture is ignored
 
         source = new Node(-1, smallestIndex, 0);
         target = new Node(columns, smallestIndex, 0);

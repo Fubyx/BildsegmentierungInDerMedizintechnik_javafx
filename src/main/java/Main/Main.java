@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        File f = new File("src/data/IMG_4.png");
+        File f = new File("src/data/IMG_1.jpg");
         int [][] picture = PicturePreparation.imagePrep(f);
         Graph g = new Graph();
         g.build(picture);
