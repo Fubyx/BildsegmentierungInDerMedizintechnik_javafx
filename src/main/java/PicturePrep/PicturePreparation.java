@@ -50,7 +50,7 @@ public class PicturePreparation {
                 grayImage.setRGB(x,y,gray.getRGB());
             }
         }
-        ImageIO.write(grayImage, "jpeg", new File("graymap.jpeg"));
+        //ImageIO.write(grayImage, "jpeg", new File("graymap.jpeg"));
 
         // The colors of the image get inverted, to enable a search for the brightest path with a dijkstra-algorithm
         BufferedImage invertedImage = new BufferedImage(polarWidth, polarHeight-2,BufferedImage.TYPE_INT_RGB);
@@ -63,7 +63,7 @@ public class PicturePreparation {
             }
         }
 
-        ImageIO.write(invertedImage, "jpeg", new File("inverted_graymap.jpeg"));
+        //ImageIO.write(invertedImage, "jpeg", new File("inverted_graymap.jpeg"));
 
 
         // gradient-filter is applied
@@ -73,7 +73,7 @@ public class PicturePreparation {
                 gradientImage.setRGB(x,y-1,pixel[x][y-1] * (-1) + pixel[x][y + 1]);
             }
         }
-        ImageIO.write(gradientImage, "jpeg", new File("gradient.jpeg"));
+        //ImageIO.write(gradientImage, "jpeg", new File("gradient.jpeg"));
 
         // The size of the image is halved, to make the size adequate for presentation.
         int [][]smallerPicture = new int[polarWidth/2][polarHeight/2];
@@ -89,7 +89,7 @@ public class PicturePreparation {
                 smallerPicture[i][j] = (red + green + blue)/3;
             }
         }
-        ImageIO.write(smallerImage, "jpeg", new File("smallerimage.jpeg"));
+        //ImageIO.write(smallerImage, "jpeg", new File("smallerimage.jpeg"));
 
         return smallerPicture;
     }
